@@ -94,3 +94,36 @@ void editStationShops(Station& station) {
         cout << "Неверный ввод." << endl;
     }
 }
+
+// Функция для сохранения данных в файл
+void saveData(const Pipe& pipe, const Station& station) {
+    ofstream file("data.txt");
+    if (file.is_open()) {
+        file << pipe.name << "\n" << pipe.length << "\n" << pipe.diameter << "\n" << pipe.inRepair << "\n";
+        file << station.name << "\n" << station.totalShops << "\n" << station.workingShops << "\n" << station.efficiency << "\n";
+        file.close();
+        cout << "Данные успешно сохранены." << endl;
+    }
+    else {
+        cout << "Ошибка при открытии файла для записи." << endl;
+    }
+}
+
+// Функция для загрузки данных из файла
+void loadData(Pipe& pipe, Station& station) {
+    ifstream file("data.txt");
+    if (file.is_open()) {
+        getline(file, pipe.name);
+        file >> pipe.length >> pipe.diameter >> pipe.inRepair;
+        file.ignore();
+        getline(file, station.name);
+        file >> station.totalShops >> station.workingShops >> station.efficiency;
+        file.close();
+        cout << "Данные успешно загружены." << endl;
+    }
+    else {
+        cout << "Ошибка при открытии файла для чтения." << endl;
+    }
+}
+
+
