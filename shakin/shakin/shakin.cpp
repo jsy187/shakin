@@ -60,3 +60,37 @@ void outputStation(const Station& station) {
     cout << "Количество работающих цехов: " << station.workingShops << endl;
     cout << "Эффективность: " << station.efficiency << endl;
 }
+// Функция для изменения статуса трубы
+void editPipeRepairStatus(Pipe& pipe) {
+    pipe.inRepair = !pipe.inRepair;
+    cout << "Статус ремонта изменен на " << (pipe.inRepair ? "В ремонте" : "Не в ремонте") << endl;
+}
+
+// Функция для изменения количества работающих цехов
+void editStationShops(Station& station) {
+    int choice;
+    cout << "Введите 1 для запуска цеха или 0 для остановки: ";
+    cin >> choice;
+
+    if (choice == 1) {
+        if (station.workingShops < station.totalShops) {
+            station.workingShops++;
+            cout << "Цех запущен. Рабочих цехов: " << station.workingShops << endl;
+        }
+        else {
+            cout << "Все цеха уже работают." << endl;
+        }
+    }
+    else if (choice == 0) {
+        if (station.workingShops > 0) {
+            station.workingShops--;
+            cout << "Цех остановлен. Рабочих цехов: " << station.workingShops << endl;
+        }
+        else {
+            cout << "Нет работающих цехов для остановки." << endl;
+        }
+    }
+    else {
+        cout << "Неверный ввод." << endl;
+    }
+}
