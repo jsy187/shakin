@@ -45,3 +45,18 @@ void inputStation(Station& station) {
     cin >> station.efficiency;
 }
 
+// Функция для вывода данных о трубе
+void outputPipe(const Pipe& pipe) {
+    cout << "Название трубы: " << pipe.name << endl;
+    cout << "Длина трубы: " << pipe.length << " км" << endl;
+    cout << "Диаметр трубы: " << pipe.diameter << " м" << endl;
+    cout << "Статус ремонта: " << (pipe.inRepair ? "В ремонте" : "Не в ремонте") << endl;
+}
+
+// Функция для вывода данных о КС
+void outputStation(const Station& station) {
+    cout << "Название КС: " << station.name << endl;
+    cout << "Общее количество цехов: " << station.totalShops << endl;
+    cout << "Количество работающих цехов: " << station.workingShops << endl;
+    cout << "Эффективность: " << station.efficiency << endl;
+}
