@@ -127,3 +127,51 @@ void loadData(Pipe& pipe, Station& station) {
 }
 
 
+#include <locale>
+#include <windows.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian"); // Устанавливаем локаль для русских символов
+    SetConsoleOutputCP(65001); // Устанавливаем кодировку UTF-8 для вывода
+    SetConsoleCP(65001); // Устанавливаем кодировку UTF-8 для ввода
+    Pipe pipe;
+    Station station;
+    int choice;
+
+    while (true) {
+        cout << "\nМеню:\n";
+        cout << "1. Добавить трубу\n2. Добавить КС\n3. Просмотр всех объектов\n4. Редактировать трубу\n";
+        cout << "5. Редактировать КС\n6. Сохранить\n7. Загрузить\n0. Выход\n";
+        cout << "Выберите действие: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            inputPipe(pipe);
+            break;
+        case 2:
+            inputStation(station);
+            break;
+        case 3:
+            outputPipe(pipe);
+            outputStation(station);
+            break;
+        case 4:
+            editPipeRepairStatus(pipe);
+            break;
+        case 5:
+            editStationShops(station);
+            break;
+        case 6:
+            saveData(pipe, station);
+            break;
+        case 7:
+            loadData(pipe, station);
+            break;
+        case 0:
+            return 0;
+        default:
+            cout << "Неверный выбор. Пожалуйста, выберите снова.\n";
+        }
+    }
+}
