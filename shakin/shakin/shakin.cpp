@@ -248,7 +248,7 @@ void editStation(Station& station) {
     }
 }
 
-// Добавление новых пунктов в главное меню
+// главное меню
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
@@ -269,9 +269,15 @@ int main() {
         cout << "0. Выход\n";
         cout << "Выберите действие: ";
 
-        cin >> choice;
+        if (!(cin >> choice)) { // Проверка на некорректный ввод
+            cout << "Ошибка. Выберите правильное действие!\n";
+            cin.clear(); // Очистка флага ошибки
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Очистка буфера ввода
+            continue; // Переход к следующей итерации цикла
+        }
+
         cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Очистка лишних символов после ввода
 
         switch (choice) {
         case 1: inputPipe(pipe); break;
@@ -282,7 +288,7 @@ int main() {
         case 6: saveToFile(pipe, station); break;
         case 7: loadFromFile(pipe, station); break;
         case 0: cout << "Выход из программы...\n"; return 0;
-        default: cout << "Неверный ввод! Попробуйте снова.\n";
+        default: cout << "Ошибка. Выберите правильное действие!\n";
         }
     }
 }
