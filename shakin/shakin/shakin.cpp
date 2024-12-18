@@ -161,38 +161,15 @@ void editPipe(Pipe& pipe) {
     }
 
     cout << "Редактирование данных о трубе:\n";
-    cout << "1. Название трубы: " << pipe.name << endl;
-    cout << "2. Длина трубы: " << pipe.length << " км\n";
-    cout << "3. Диаметр трубы: " << pipe.diameter << " м\n";
-    cout << "4. Статус ремонта: " << (pipe.inRepair ? "В ремонте" : "Не в ремонте") << endl;
+    cout << "1. Статус ремонта: " << (pipe.inRepair ? "В ремонте" : "Не в ремонте") << endl;
 
     int choice;
-    cout << "Выберите поле для редактирования (1-4): ";
+    cout << "Подтвердите редактирование (1 - подтвердить): ";
     cin >> choice;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     switch (choice) {
     case 1:
-        cout << "Введите новое название трубы: ";
-        getline(cin, pipe.name);
-        break;
-    case 2:
-        cout << "Введите новую длину трубы: ";
-        while (!(cin >> pipe.length) || pipe.length <= 0) {
-            cout << "Ошибка ввода! Введите положительное число: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        break;
-    case 3:
-        cout << "Введите новый диаметр трубы: ";
-        while (!(cin >> pipe.diameter) || pipe.diameter <= 0) {
-            cout << "Ошибка ввода! Введите положительное число: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        break;
-    case 4:
         cout << "Труба в ремонте? (1 - да, 0 - нет): ";
         while (!(cin >> pipe.inRepair)) {
             cout << "Ошибка ввода! Введите 1 или 0: ";
@@ -213,29 +190,15 @@ void editStation(Station& station) {
     }
 
     cout << "Редактирование данных о КС:\n";
-    cout << "1. Название КС: " << station.name << endl;
-    cout << "2. Общее количество цехов: " << station.totalShops << endl;
-    cout << "3. Количество работающих цехов: " << station.workingShops << endl;
+    cout << "1. Количество работающих цехов: " << station.workingShops << endl;
 
     int choice;
-    cout << "Выберите поле для редактирования (1-3): ";
+    cout << "Подтвердите редактирование (1 - подтвердить): ";
     cin >> choice;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     switch (choice) {
     case 1:
-        cout << "Введите новое название КС: ";
-        getline(cin, station.name);
-        break;
-    case 2:
-        cout << "Введите новое общее количество цехов: ";
-        while (!(cin >> station.totalShops) || station.totalShops <= 0) {
-            cout << "Ошибка ввода! Введите положительное число: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        break;
-    case 3:
         cout << "Введите новое количество работающих цехов: ";
         while (!(cin >> station.workingShops) || station.workingShops < 0 || station.workingShops > station.totalShops) {
             cout << "Ошибка ввода! Введите корректное число (0 - " << station.totalShops << "): ";
