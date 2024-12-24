@@ -32,5 +32,8 @@
     <ClInclude Include="Station.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
