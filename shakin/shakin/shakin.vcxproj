@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="shakin.cpp" />
   </ItemGroup>
   <ItemGroup>
