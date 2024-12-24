@@ -23,4 +23,3 @@ public:
     void saveToFile(std::ostream& out) const;
     void loadFromFile(std::istream& in);
 };
-
