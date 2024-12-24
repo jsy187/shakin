@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="shakin.cpp" />
+    <ClCompile Include="Station.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pipe.h" />
