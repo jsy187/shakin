@@ -26,5 +26,8 @@
     <ClInclude Include="Pipe.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Station.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
