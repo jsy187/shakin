@@ -2,24 +2,26 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 class Pipe {
 private:
     int id;
-    std::string name;
-    double length;
-    double diameter;
+    string name;
     bool inRepair;
 
 public:
-    Pipe(int id, const std::string& name, double length, double diameter, bool inRepair);
+    Pipe() : id(0), name(""), inRepair(false) {}
 
-    int getId() const;
-    std::string getName() const;
-    bool isInRepair() const;
+    friend ostream& operator<<(ostream& out, const Pipe& pipe);
+    friend istream& operator>>(istream& in, Pipe& pipe);
 
-    void edit();
-    void display() const;
+    string toString() const;
 
-    void saveToFile(std::ostream& out) const;
-    void loadFromFile(std::istream& in);
+    // Getters and Setters
+    int getId() const { return id; }
+    void setId(int newId) { id = newId; }
+
+    bool isInRepair() const { return inRepair; }
+    void setInRepair(bool repair) { inRepair = repair; }
 };
