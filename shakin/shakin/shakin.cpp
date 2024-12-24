@@ -22,3 +22,14 @@ void printMenu() {
     cout << "0. Выход\n";
 }
 
+// Функция отображения всех объектов
+void displayAllObjects(const vector<Pipe>& pipes, const vector<Station>& stations) {
+    cout << "\nТрубы:\n";
+    for (const auto& pipe : pipes) {
+        cout << pipe << endl;
+    }
+    cout << "\nКомпрессорные станции:\n";
+    for (const auto& station : stations) {
+        cout << station << endl;
+    }
+}
