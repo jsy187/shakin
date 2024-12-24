@@ -50,7 +50,7 @@ void inputPipe(Pipe& pipe) {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    pipe.exists = true; // Устанавливаем флаг существования
+    pipe.exists = true; // флаг существования
 }
 
 // Функция ввода данных о КС
@@ -72,7 +72,7 @@ void inputStation(Station& station) {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    station.exists = true; // Устанавливаем флаг существования
+    station.exists = true; // флаг существования
 }
 
 // Функция вывода данных о трубе
